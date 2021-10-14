@@ -1,0 +1,53 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@hooks": [
+        "./src/hooks/*"
+      ],
+      "@styles": [
+        "./src/styles/*"
+      ],
+      "@layout": [
+        "./src/components/Layout/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@endpoints/*": [
+        "./src/endpoints/*"
+      ]
+    },
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "commonjs",
+    "jsx": "preserve",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "importHelpers": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "typeRoots": ["./node_modules/@types"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "baseUrl": ".",
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
+  "include": [
+    "src",
+    "config.ts",
+    "next.config.js"
+  ]
+}

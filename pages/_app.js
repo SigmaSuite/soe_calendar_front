@@ -1,7 +1,13 @@
-import '../styles/globals.css'
+import React from 'react';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+import '98.css';
+import CustomThemeProvider from '../styles/CustomThemeProvider';
+import theme from '../styles/theme';
+
+export default function App({ Component, pageProps }) {
+  return (
+    <CustomThemeProvider theme={theme}>
+      <Component {...pageProps}></Component>
+    </CustomThemeProvider>
+  );
 }
-
-export default MyApp
