@@ -8,6 +8,7 @@ import {
   BirthdayTreeButtonsContainer,
   BirthdayTreeDescription,
   CollapseButton,
+  DateHeader,
 } from './SigmaBirthdays.styles';
 
 const birthdaysMockup = [
@@ -21,7 +22,6 @@ const birthdaysMockup = [
   { bdayBoy: 'SmallGut', date: new Date(2022, 10, 12) },
   { bdayBoy: 'TurboGut', date: new Date(2022, 12, 16) },
 ];
-
 const monthNames = [
   'December',
   'January',
@@ -56,6 +56,9 @@ export default function SigmaBirthdays() {
 
   return (
     <BirthdayOptionContainer>
+      <DateHeader>{`${currentDate.getDate()} ${
+        monthNames[currentDate.getMonth()]
+      } ${currentDate.getFullYear()}`}</DateHeader>
       <BirthdayTreeButtonsContainer>
         <CollapseButton onClick={handleCollapseTree} type="button">
           Collapse All

@@ -8,6 +8,9 @@ export const BirthdayOptionContainer = styled.div`
   height: 100%;
   padding-top: 5rem;
 `;
+export const DateHeader = styled.h3`
+  margin: 0;
+`;
 
 export const BirthdayTreeButtonsContainer = styled.div`
   display: flex;
