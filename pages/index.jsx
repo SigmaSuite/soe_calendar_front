@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
-import usePersonModals from '../src/components/Layout/ModalFunctions/PersonModals';
+import { PERSONS } from '@endpoints/rustapi';
+import usePersonModals from '../src/components/ModalFunctions/PersonModals';
 import Layout from '../src/components/Layout/Layout';
 import GlobalStyles from '../styles/GlobalStyles';
-import { PERSONS } from '@endpoints/rustapi';
 
 export default function PersonsPage() {
   const [persons, setPersons] = useState();
@@ -24,7 +24,7 @@ export default function PersonsPage() {
   return (
     <>
       <GlobalStyles />
-      <Layout modals={modals}></Layout>
+      <Layout modals={modals} />
     </>
   );
 }

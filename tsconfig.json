@@ -47,6 +47,8 @@
   ],
   "include": [
     "src",
+    "pages",
+    "public",
     "config.ts",
     "next.config.js"
   ]

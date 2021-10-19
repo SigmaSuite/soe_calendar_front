@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   PersonTab,
   PersonName,
@@ -9,7 +10,6 @@ import {
   CringeSlider,
   PersonBodyInfo,
 } from '../PersonTab/PersonTab.styles';
-
 import { PersonsListContainer } from './PersonsList.styles';
 
 export default function PersonsList({ persons }) {
@@ -21,7 +21,7 @@ export default function PersonsList({ persons }) {
             <PersonHeader className="title-bar inactive ">
               <PersonName className="title-bar-text">{person.name}</PersonName>
               <div className="title-bar-controls">
-                <PersonContainerButton aria-label="Close"></PersonContainerButton>
+                <PersonContainerButton aria-label="Close" />
               </div>
             </PersonHeader>
             <PersonBody className="window-body">

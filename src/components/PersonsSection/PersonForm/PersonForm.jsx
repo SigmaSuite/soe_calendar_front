@@ -25,7 +25,7 @@ export default function PersonForm({ setPersons, closeModal }) {
   async function handleSubmit(event) {
     event.preventDefault();
     const newPerson = {
-      name: name,
+      name,
       bankaccount: cardId,
     };
     if (!(name || cardId)) return;
@@ -48,19 +48,14 @@ export default function PersonForm({ setPersons, closeModal }) {
   }
 
   return (
-    <PersonFormContainer
-      isLarge={isLarge}
-      className="window"
-      method={'post'}
-      onSubmit={handleSubmit}
-    >
+    <PersonFormContainer isLarge={isLarge} className="window" method="post" onSubmit={handleSubmit}>
       <PersonFormInputsContainer>
         <PersonFormHeader className="title-bar">
           <div className="title-bar-text">Add New Sigma Member</div>
           <div className="title-bar-controls">
-            <button onClick={() => setIsLarge(false)} aria-label="Minimize"></button>
-            <button onClick={() => setIsLarge(true)} aria-label="Maximize"></button>
-            <button onClick={() => closeModal()} aria-label="Close"></button>
+            <button type="button" onClick={() => setIsLarge(false)} aria-label="Minimize" />
+            <button type="button" onClick={() => setIsLarge(true)} aria-label="Maximize" />
+            <button type="button" onClick={() => closeModal()} aria-label="Close" />
           </div>
         </PersonFormHeader>
         <PersonFormRow className="field-row">
@@ -69,7 +64,7 @@ export default function PersonForm({ setPersons, closeModal }) {
             id="name"
             value={name}
             onChange={({ target }) => setName(target.value)}
-            type={'text'}
+            type="text"
           />
         </PersonFormRow>
         <PersonFormRow className="field-row">
@@ -80,21 +75,23 @@ export default function PersonForm({ setPersons, closeModal }) {
             onChange={({ target }) => setCardId(target.value)}
             minLength={16}
             min={0}
-            type={'number'}
+            type="number"
           />
         </PersonFormRow>
         <PersonFormRow className="field-row">
           <PersonFormLabel htmlFor="birthday">Birthday</PersonFormLabel>
-          <PersonFormInput id="birthday" type={'date'} />
+          <PersonFormInput id="birthday" type="date" />
         </PersonFormRow>
         <PersonFormRow className="field-row">
           <PersonFormLabel htmlFor="cringe">Cringe</PersonFormLabel>
-          <PersonFormInput id="cringe" type={'range'} />
+          <PersonFormInput id="cringe" type="range" />
         </PersonFormRow>
       </PersonFormInputsContainer>
       <ButtonRow>
-        <button onClick={() => closeModal()}>Cancel</button>
-        <SubmitButton type={'submit'}>Submit</SubmitButton>
+        <button type="button" onClick={() => closeModal()}>
+          Cancel
+        </button>
+        <SubmitButton type="submit">Submit</SubmitButton>
       </ButtonRow>
     </PersonFormContainer>
   );
