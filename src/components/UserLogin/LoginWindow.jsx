@@ -1,27 +1,35 @@
 import React, { useState } from 'react';
 
-import { WindowBody, WindowControls, WindowHeader } from '@components/Generic/WindowsElements';
+import { WindowBody, WindowHeader } from '@components/Generic/WindowsElements';
+import WindowControls from '@components/Generic/WindowControls';
 import {
+  ErrorMessage,
   LoginButtons,
   LoginContainer,
   LoginCredentialsContainer,
   LoginDescription,
+  LoginFormErrorContainer,
   LoginFormRow,
   LoginHeader,
   LoginImageContainer,
 } from './LoginWindow.styles';
 
 export default function LoginWindow({ closeModal }) {
+  const [isError, setIsError] = useState(false);
   const [isMaximized, setIsMaximized] = useState(false);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    // implement login logic
+    const error = { message: 'Some error mockup' };
+    setIsError(error);
+  }
+
   return (
     <LoginContainer isMaximized={isMaximized} className="window">
-      <WindowHeader className="title-bar">
+      <WindowHeader isInvalid={isError} className="title-bar">
         <LoginHeader className="title-bar-text">Login in to your Sigma Account</LoginHeader>
-        <WindowControls className="title-bar-controls">
-          <button type="button" onClick={() => setIsMaximized(false)} aria-label="Minimize" />
-          <button type="button" onClick={() => setIsMaximized(true)} aria-label="Maximize" />
-          <button onClick={closeModal} type="button" aria-label="Close" />
-        </WindowControls>
+        <WindowControls setIsMaximized={setIsMaximized} closeModal={closeModal} />
       </WindowHeader>
       <WindowBody className="window-body">
         <LoginImageContainer />
@@ -39,9 +47,16 @@ export default function LoginWindow({ closeModal }) {
             </label>
             <input id="password" type="password" />
           </LoginFormRow>
+          {isError && (
+            <LoginFormErrorContainer>
+              <ErrorMessage className="status-bar-field">{isError.message}</ErrorMessage>
+            </LoginFormErrorContainer>
+          )}
         </LoginCredentialsContainer>
         <LoginButtons>
-          <button type="button">OK</button>
+          <button onClick={(e) => handleSubmit(e)} type="submit">
+            OK
+          </button>
           <button onClick={closeModal} type="button">
             Cancel
           </button>

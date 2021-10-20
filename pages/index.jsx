@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { PERSONS } from '@endpoints/rustapi';
 import usePersonModals from '../src/components/ModalFunctions/PersonModals';
 import Layout from '../src/components/Layout/Layout';
-import GlobalStyles from '../styles/GlobalStyles';
+import GlobalStyles from '../src/styles/GlobalStyles';
 
 export default function PersonsPage() {
   const [persons, setPersons] = useState();

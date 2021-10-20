@@ -37,7 +37,10 @@ export default function Layout({ modals, children }) {
               <DropdownButton>
                 <Link href="/"> SIGMA MEMBERS</Link>
               </DropdownButton>
-              <DropdownButton>SIGMA CALENDAR</DropdownButton>
+              <DropdownButton>
+                {' '}
+                <Link href="/calendar"> SIGMA CALENDAR</Link>
+              </DropdownButton>
               <DropdownButton>SIGMA POOP</DropdownButton>
               <DropdownButton>
                 <Link href="/ciombor"> CIOMBOR</Link>

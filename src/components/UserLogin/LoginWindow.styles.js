@@ -18,7 +18,7 @@ export const LoginImageContainer = styled.div`
   height: 100%;
 `;
 
-export const LoginCredentialsContainer = styled.div`
+export const LoginCredentialsContainer = styled.form`
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -27,11 +27,6 @@ export const LoginCredentialsContainer = styled.div`
 
 export const LoginDescription = styled.p`
   margin-bottom: 2rem;
-`;
-
-export const LoginForm = styled.form`
-  display: flex;
-  flex-direction: column;
 `;
 
 export const LoginFormRow = styled.div`
@@ -43,6 +38,16 @@ export const LoginFormRow = styled.div`
   input {
     height: 2.5rem;
   }
+`;
+
+export const LoginFormErrorContainer = styled.div`
+  height: auto;
+  width: 21.3rem;
+`;
+
+export const ErrorMessage = styled.p`
+  margin: 0;
+  color: red;
 `;
 
 export const LoginButtons = styled.div`

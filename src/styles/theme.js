@@ -14,8 +14,8 @@ export const fontWeight = {
 export const fontSize = {
   xLarge: '2rem',
   large: '1.8rem',
-  medium: '1.4rem',
-  small: '1.2rem',
+  medium: '1.2rem',
+  small: '1rem',
 };
 
 export const color = {

@@ -7,7 +7,7 @@
       "@styles": [
         "./src/styles/*"
       ],
-      "@layout": [
+      "@layout/*": [
         "./src/components/Layout/*"
       ],
       "@components/*": [
