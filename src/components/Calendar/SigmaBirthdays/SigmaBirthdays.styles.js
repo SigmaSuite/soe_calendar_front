@@ -13,7 +13,6 @@ export const DateHeader = styled.h3`
 `;
 
 export const MonthSummary = styled.summary`
-  &::marker,
   &::before {
     visibility: hidden;
   }
