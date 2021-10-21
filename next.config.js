@@ -1,5 +1,4 @@
 module.exports = {
   reactStrictMode: true,
-  distDir: '_next',
-  basePath: '/'
+  distDir: '_next'
 };
