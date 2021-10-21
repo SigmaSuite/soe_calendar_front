@@ -16,7 +16,7 @@ import {
   PageNavigation,
 } from './Layout.styles';
 
-export default function Layout({ children }) {
+export default function Layout() {
   const [currentModal, setCurrentModal] = useState(<></>);
   const [displayDropdown, setDisplayDropdown] = useState(false);
 

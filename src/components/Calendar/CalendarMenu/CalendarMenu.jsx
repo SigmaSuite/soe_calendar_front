@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 
 import { WindowBody, WindowDescription, WindowHeader } from '@components/Generic/WindowsElements';

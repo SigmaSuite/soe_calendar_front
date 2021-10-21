@@ -12,6 +12,7 @@ import {
   SubmitButton,
 } from './PersonForm.styles';
 
+// eslint-disable-next-line react/prop-types
 export default function PersonForm({ setPersons, closeModal }) {
   const [name, setName] = useState('');
   const [cardId, setCardId] = useState('');
