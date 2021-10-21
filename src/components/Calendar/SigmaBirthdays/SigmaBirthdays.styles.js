@@ -12,6 +12,13 @@ export const DateHeader = styled.h3`
   margin: 0;
 `;
 
+export const MonthSummary = styled.summary`
+  &::marker,
+  &::before {
+    visibility: hidden;
+  }
+`;
+
 export const BirthdayTreeButtonsContainer = styled.div`
   display: flex;
   justify-content: flex-end;
