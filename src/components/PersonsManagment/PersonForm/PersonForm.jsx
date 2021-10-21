@@ -76,7 +76,7 @@ export default function PersonForm({ setPersons, closeModal }) {
             onChange={({ target }) => setCardId(target.value)}
             minLength={16}
             min={0}
-            type="number"
+            type="text"
           />
         </PersonFormRow>
         <PersonFormRow className="field-row">
