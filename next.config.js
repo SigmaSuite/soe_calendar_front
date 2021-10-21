@@ -1,5 +1,5 @@
 module.exports = {
   reactStrictMode: true,
   distDir: '_next',
-  basePath: process.env.BASE_PATH,
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH,
 };
