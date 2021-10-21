@@ -2,11 +2,12 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: soe-calendar-frontend
-  labels:
-    app: soe-calendar-frontend
 spec:
   replicas: 1
   template:
+    metadata:
+      labels:
+        app: soe-calendar-frontend
     spec:
       containers:
       - name: soe-calendar-frontend
