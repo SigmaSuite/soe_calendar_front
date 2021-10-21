@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: soe-calendar-frontend
+  labels:
+    app: soe-calendar-frontend
 spec:
   replicas: 1
   template:
@@ -12,7 +14,8 @@ spec:
         ports:
           - containerPort: 3000
   selector:
-    app: soe-calendar-frontend
+    matchLabels:
+      app: soe-calendar-frontend
 ---
 apiVersion: v1
 kind: Service
