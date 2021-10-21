@@ -48,7 +48,7 @@ export default function RegisterWindow({ closeModal }) {
               <label htmlFor="number">
                 <u>P</u>hone Number
               </label>
-              <input id="number" type="number" />
+              <input id="number" type="text" />
             </RegisterFormRow>
             <RegisterFormRow className="field-row">
               <label htmlFor="password">

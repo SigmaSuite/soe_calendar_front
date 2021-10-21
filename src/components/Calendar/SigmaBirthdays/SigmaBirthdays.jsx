@@ -16,6 +16,7 @@ import {
   BirthdayTreeButtonsContainer,
   BirthdayTreeDescription,
   DateHeader,
+  MonthSummary,
 } from './SigmaBirthdays.styles';
 
 const birthdaysMockup = [
@@ -61,7 +62,7 @@ export default function SigmaBirthdays() {
         {birthdayMonths.map((month) => (
           <BirthdayMonthBranch key={month}>
             <details open={isMonthPassTheCurrentDate(month)}>
-              <summary>{MONTH_NAMES[month]}</summary>
+              <MonthSummary>{MONTH_NAMES[month]}</MonthSummary>
               <ul>
                 {birthdaysInMonth(month).map(({ date, bdayBoy }) => (
                   <li key={bdayBoy}>

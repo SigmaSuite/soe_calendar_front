@@ -1,5 +1,5 @@
 module.exports = {
   reactStrictMode: true,
   distDir: '_next',
-  basePath: '/api/calendar'
+  basePath: process.env.BASE_PATH,
 };
