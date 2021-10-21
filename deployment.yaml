@@ -15,6 +15,11 @@ spec:
         ports:
           - containerPort: 80
         imagePullPolicy: Always
+        env:
+        - name: PORT
+          value: "80"
+        - name: BASE_PATH
+          value: ""
       imagePullSecrets:
         - name: ghcr-secret
   selector:
