@@ -16,7 +16,7 @@ export const isPassTheCurrentDate = (date) => {
   if (month === currentMonth) {
     const day = date.getDate();
     const currentDay = currentDate.getDate();
-    return currentDay > day;
+    return currentDay <= day;
   }
   return isMonthPassTheCurrentDate(month);
 };
