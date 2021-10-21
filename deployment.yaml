@@ -12,8 +12,7 @@ spec:
         ports:
           - containerPort: 3000
   selector:
-    matchLabels:
-      app: soe-calendar-frontend
+    app: soe-calendar-frontend
 ---
 apiVersion: v1
 kind: Service
