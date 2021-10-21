@@ -5,18 +5,18 @@ metadata:
 spec:
   replicas: 1
   template:
+    spec:
+      containers:
+      - name: soe-calendar-frontend
+        image: ghcr.io/sigmasuite/soe_calendar_front:main
+        ports:
+          - containerPort: 3000
     metadata:
       labels:
         service: soe-calendar-frontend
   selector:
     matchLabels:
       app: soe-calendar-frontend
-    spec:
-      containers:
-        - name: soe-calendar-frontend
-          image: ghcr.io/sigmasuite/soe_calendar_front:main
-          ports:
-            - containerPort: 3000
 ---
 apiVersion: v1
 kind: Service
