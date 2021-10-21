@@ -8,7 +8,7 @@ export const RegisterWindowContainer = styled.div`
   height: 50rem;
   margin: auto;
 
-  transform: ${({ isMaximized }) => isMaximized && 'scale(1.2)'};
+  transform: ${({ isMaximized }) => isMaximized && 'scale(1.5)'};
 `;
 
 export const RegisterWindowBody = styled(WindowBody)`
