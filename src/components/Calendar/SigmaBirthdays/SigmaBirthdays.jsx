@@ -27,7 +27,7 @@ const birthdaysMockup = [
   { bdayBoy: 'Bartek', date: new Date(2021, 4, 4) },
   { bdayBoy: 'Przemo', date: new Date(2021, 5, 5) },
   { bdayBoy: 'Gut', date: new Date(2021, 6, 6) },
-  { bdayBoy: 'SmallGut', date: new Date(2022, 10, 12) },
+  { bdayBoy: 'SmallGut', date: new Date(2022, 9, 20) },
   { bdayBoy: 'TurboGut', date: new Date(2022, 12, 16) },
 ];
 

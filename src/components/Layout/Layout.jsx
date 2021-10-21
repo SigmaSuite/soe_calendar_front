@@ -24,7 +24,7 @@ export default function Layout() {
   const closeModal = () => setCurrentModal(<></>);
 
   const modalComponent = { ...currentModal, props: { ...currentModal.props, closeModal } };
-
+  console.log(process.env.NEXT_PUBLIC_BASE_PATH);
   return (
     <>
       <NavbarOverlay>
