@@ -13,7 +13,7 @@ export const LoginContainer = styled.div`
 export const LoginImageContainer = styled.div`
   width: 10rem;
   margin-right: 2rem;
-  background: url('calendar/ciombor.svg');
+  background: url('ciombor.svg');
 `;
 
 export const LoginCredentialsContainer = styled.form`
