@@ -1,6 +1,6 @@
-import RegisterWindow from '@components/UserLogin/RegisterWindow';
+import RegisterWindow from '@components/UserAccess/RegisterWindow';
 
-const { default: LoginWindow } = require('@components/UserLogin/LoginWindow');
+const { default: LoginWindow } = require('@components/UserAccess/LoginWindow');
 
 const emptyModal = () => <></>;
 const displayLoginModal = () => <LoginWindow />;

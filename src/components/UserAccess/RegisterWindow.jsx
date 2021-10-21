@@ -32,7 +32,7 @@ export default function RegisterWindow({ closeModal }) {
       </WindowHeader>
       <RegisterWindowBody inColumn className="window-body">
         <RegisterWindowContent>
-          <RegisterImageContainer />
+          <RegisterImageContainer isInvalid={error} />
           <RegisterForm>
             <RegisterDescription>
               Enter basic information for the new Sigma user.

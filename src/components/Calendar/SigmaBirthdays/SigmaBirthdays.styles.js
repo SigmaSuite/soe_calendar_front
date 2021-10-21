@@ -18,11 +18,6 @@ export const BirthdayTreeButtonsContainer = styled.div`
   width: 41.2rem;
   margin-bottom: 0.2rem;
 `;
-export const CollapseButton = styled.button`
-  margin-left: 0.5rem;
-  min-width: 7rem;
-  background-image: url('file.svg');
-`;
 
 export const BirthdayTree = styled.ul`
   background-color: white;

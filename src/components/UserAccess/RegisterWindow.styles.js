@@ -17,8 +17,11 @@ export const RegisterWindowBody = styled(WindowBody)`
 
 export const RegisterImageContainer = styled.div`
   display: flex;
-  background-color: blue;
-  background-image: url('bartek.svg'), linear-gradient(45deg, #1212a4, #1084d0);
+  background-image: url('bartek.svg'),
+    ${({ isInvalid }) =>
+      isInvalid
+        ? 'linear-gradient(45deg,#e60a29,#6b6c6c)'
+        : 'linear-gradient(45deg, #1212a4, #1084d0)'};
   width: 22rem;
   min-width: 22rem;
   height: 42rem;

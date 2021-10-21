@@ -14,8 +14,6 @@ export const LoginImageContainer = styled.div`
   width: 10rem;
   margin-right: 2rem;
   background: url('ciombor.svg');
-  background-color: silver;
-  height: 100%;
 `;
 
 export const LoginCredentialsContainer = styled.form`

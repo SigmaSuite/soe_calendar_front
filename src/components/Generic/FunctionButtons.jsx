@@ -1,3 +1,5 @@
+import styled from 'styled-components';
+
 export const CloseButton = ({ children, onClick }) => (
   <button onClick={onClick} type="button" aria-label="Close">
     {children}
@@ -16,10 +18,25 @@ export const MaximizeButton = ({ children, onClick }) => (
   </button>
 );
 
+export const CollapseButton = styled.button`
+  font-weight: ${({ theme: { fontWeight } }) => fontWeight.bold};
+  padding: 0 8px;
+  min-width: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+
+  &:active,
+  &:focus,
+  &:not(:disabled):active {
+    padding: initial;
+  }
+`;
+
 const buttons = {
   CloseButton,
   MinimizeButton,
   MaximizeButton,
+  CollapseButton,
 };
 
 export default buttons;

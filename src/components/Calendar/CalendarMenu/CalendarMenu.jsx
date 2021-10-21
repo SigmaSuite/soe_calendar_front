@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 
-import {
-  WindowBody,
-  WindowControls,
-  WindowDescription,
-  WindowHeader,
-} from '@components/Generic/WindowsElements';
+import { WindowBody, WindowDescription, WindowHeader } from '@components/Generic/WindowsElements';
 import calendarOptions from '@components/ModalFunctions/CalendarModals';
+import WindowControls from '@components/Generic/WindowControls';
 import {
   CalendarContentContainer,
   CalendarOption,
@@ -15,7 +11,7 @@ import {
   CalendarWindowContainer,
 } from './CalendarMenu.styles';
 
-export default function CalendarMenu() {
+export default function CalendarMenu({ closeModal }) {
   const options = calendarOptions;
   const [selectedOption, setSelectionOption] = useState(options[0]);
   const [isMaximized, setIsMaximized] = useState(false);
@@ -29,24 +25,24 @@ export default function CalendarMenu() {
     <CalendarWindowContainer isMaximized={isMaximized} className="window">
       <WindowHeader className="title-bar">
         <WindowDescription className="title-bar-text">Sigma Calendar</WindowDescription>
-        <WindowControls className="title-bar-controls">
-          <button onClick={() => setIsMaximized(false)} type="button" aria-label="Minimize" />
-          <button onClick={() => setIsMaximized(true)} type="button" aria-label="Maximize" />
-          <button type="button" aria-label="Close" />
-        </WindowControls>
+        <WindowControls
+          closeModal={closeModal}
+          setIsMaximized={setIsMaximized}
+          className="title-bar-controls"
+        />
       </WindowHeader>
       <WindowBody className="window-body">
         <CalendarContentContainer>
           <CalendarOptionsSwitch>
-            {options.map(({ name }) => (
+            {options.map(({ name: optionName }) => (
               <CalendarOptionsButton
-                value={name}
-                isActive={selectedOption.name === name}
-                key={name}
+                value={optionName}
+                isActive={selectedOption.name === optionName}
+                key={optionName}
                 type="button"
                 onClick={(e) => handleOptionSelect(e)}
               >
-                {name}
+                {optionName}
               </CalendarOptionsButton>
             ))}
           </CalendarOptionsSwitch>

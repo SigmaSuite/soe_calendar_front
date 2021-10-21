@@ -5,9 +5,13 @@ const usePersons = () => {
   const [persons, setPersons] = useState(null);
 
   async function fetchPersons() {
-    const resp = await fetch(PERSONS);
-    const resJson = await resp.json();
-    setPersons(resJson);
+    try {
+      const resp = await fetch(PERSONS);
+      const resJson = await resp.json();
+      setPersons(resJson);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   useEffect(() => {

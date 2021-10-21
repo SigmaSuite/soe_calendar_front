@@ -1,5 +1,6 @@
 import React from 'react';
 
+import usePersons from 'src/hooks/UsePersons';
 import {
   PersonTab,
   PersonName,
@@ -12,7 +13,8 @@ import {
 } from '../PersonTab/PersonTab.styles';
 import { PersonsListContainer } from './PersonsList.styles';
 
-export default function PersonsList({ persons }) {
+export default function PersonsList() {
+  const persons = usePersons();
   return (
     <PersonsListContainer>
       {persons &&

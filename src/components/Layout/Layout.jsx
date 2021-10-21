@@ -1,31 +1,29 @@
 import React, { useState } from 'react';
-import Link from 'next/link';
 
+import LoginWindow from '@components/UserAccess/LoginWindow';
+import RegisterWindow from '@components/UserAccess/RegisterWindow';
+import DesktopIcon from '@components/Generic/DesktopIcon';
+import DesktopIcons from '@components/DesktopIcons/DesktopIcons';
 import {
+  Desktop,
   Dropdown,
   DropdownButton,
   LogoButton,
   MainContent,
+  ModalContainer,
   Navbar,
   NavbarOverlay,
-  NavButton,
   PageNavigation,
 } from './Layout.styles';
 
-export default function Layout({ modals, children }) {
-  const [currentModal, setCurrentModal] = useState(modals[0].component);
+export default function Layout({ children }) {
+  const [currentModal, setCurrentModal] = useState(<></>);
   const [displayDropdown, setDisplayDropdown] = useState(false);
 
   const toggleDropdown = () => setDisplayDropdown((prevState) => !prevState);
-  const closeModal = () => setCurrentModal(modals[0].component);
+  const closeModal = () => setCurrentModal(<></>);
 
-  function handleModalSelect({ target }) {
-    const modalIndex = target.value;
-    setCurrentModal(modals[modalIndex].component);
-  }
-
-  const modalComponent = { ...currentModal };
-  modalComponent.props = { ...modalComponent.props, closeModal };
+  const modalComponent = { ...currentModal, props: { ...currentModal.props, closeModal } };
 
   return (
     <>
@@ -34,32 +32,38 @@ export default function Layout({ modals, children }) {
           <PageNavigation>
             <LogoButton onClick={toggleDropdown}>Sigma Suite</LogoButton>
             <Dropdown isVisible={displayDropdown}>
-              <DropdownButton>
-                <Link href="/"> SIGMA MEMBERS</Link>
+              <DropdownButton
+                onClick={() => {
+                  setCurrentModal(<LoginWindow />);
+                  toggleDropdown();
+                }}
+              >
+                LOGIN
               </DropdownButton>
-              <DropdownButton>
-                {' '}
-                <Link href="/calendar"> SIGMA CALENDAR</Link>
-              </DropdownButton>
-              <DropdownButton>SIGMA POOP</DropdownButton>
-              <DropdownButton>
-                <Link href="/ciombor"> CIOMBOR</Link>
+              <DropdownButton
+                onClick={() => {
+                  setCurrentModal(<RegisterWindow />);
+                  toggleDropdown();
+                }}
+              >
+                REGISTER
               </DropdownButton>
             </Dropdown>
           </PageNavigation>
-
-          {modals
-            .filter((modals) => modals.name)
-            .map((modal, index) => (
-              <NavButton value={index + 1} onClick={(e) => handleModalSelect(e)} key={modal.name}>
-                {modal.name}
-              </NavButton>
-            ))}
         </Navbar>
       </NavbarOverlay>
       <MainContent onClick={() => setDisplayDropdown(false)}>
-        {modalComponent}
-        {children}
+        <Desktop>
+          <ModalContainer>{modalComponent}</ModalContainer>
+          {DesktopIcons.map(({ component, name }) => (
+            <DesktopIcon
+              key={name}
+              component={component}
+              name={name}
+              setCurrentModal={setCurrentModal}
+            />
+          ))}
+        </Desktop>
       </MainContent>
     </>
   );

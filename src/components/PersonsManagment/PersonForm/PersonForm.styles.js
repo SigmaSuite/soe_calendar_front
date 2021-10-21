@@ -5,7 +5,6 @@ export const PersonFormContainer = styled.form`
   flex-direction: column;
   width: 400px;
   height: auto;
-  margin-top: 20rem;
   transform: ${({ isLarge }) => isLarge && 'scale(2)'};
 `;
 export const PersonFormHeader = styled.header`

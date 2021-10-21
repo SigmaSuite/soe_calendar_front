@@ -1,7 +1,7 @@
 import React from 'react';
 
-import GlobalStyles from '@styles';
-import CalendarMenu from '@components/Calendar/CalendarMenu';
+import CalendarMenu from '@components/Calendar/CalendarMenu/CalendarMenu';
+import GlobalStyles from '@styles/GlobalStyles';
 import Layout from '../src/components/Layout/Layout';
 import modals from '../src/components/ModalFunctions/LoginModals';
 

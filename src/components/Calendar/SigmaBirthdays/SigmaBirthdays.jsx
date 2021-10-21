@@ -1,5 +1,13 @@
 import React, { useRef } from 'react';
 
+import { CollapseButton } from '@components/Generic/FunctionButtons';
+import {
+  currentDate,
+  getMonthsSetInDatesCollection,
+  isMonthPassTheCurrentDate,
+  isPassTheCurrentDate,
+} from 'src/utils/Date';
+import MONTH_NAMES from 'src/consts/Date';
 import {
   BirthdayLink,
   BirthdayMonthBranch,
@@ -7,7 +15,6 @@ import {
   BirthdayTree,
   BirthdayTreeButtonsContainer,
   BirthdayTreeDescription,
-  CollapseButton,
   DateHeader,
 } from './SigmaBirthdays.styles';
 
@@ -22,46 +29,31 @@ const birthdaysMockup = [
   { bdayBoy: 'SmallGut', date: new Date(2022, 10, 12) },
   { bdayBoy: 'TurboGut', date: new Date(2022, 12, 16) },
 ];
-const monthNames = [
-  'December',
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-];
-export default function SigmaBirthdays() {
-  const birthdayMonths = [...new Set(birthdaysMockup.map(({ date }) => date.getMonth()))];
-  const currentDate = new Date(Date.now());
-  const birthdayTreeRef = useRef();
 
-  const isMonthPassTheCurrentDate = (month) => {
-    const currentMonth = currentDate.getMonth();
-    if (month === 0) return true;
-    return month >= currentMonth;
-  };
+export default function SigmaBirthdays() {
+  const birthdayTreeRef = useRef();
+  const birthdayMonths = getMonthsSetInDatesCollection(birthdaysMockup.map(({ date }) => date));
+
+  const dateHeaderText = `${currentDate.getDate()} ${
+    MONTH_NAMES[currentDate.getMonth()]
+  } ${currentDate.getFullYear()}`;
+
+  const birthdaysInMonth = (month) =>
+    birthdaysMockup.filter(({ date }) => date.getMonth() === month);
 
   function handleCollapseTree() {
     const { children: monthBranches } = birthdayTreeRef.current;
-    const monthBranchesArray = Array.from(monthBranches).slice(1); // get rid of p
+    const monthBranchesArray = Array.from(monthBranches).slice(1); // get rid of <p> DOM element
     const details = monthBranchesArray.map((branch) => branch.firstChild);
     return details.forEach((detail) => detail.removeAttribute('open'));
   }
 
   return (
     <BirthdayOptionContainer>
-      <DateHeader>{`${currentDate.getDate()} ${
-        monthNames[currentDate.getMonth()]
-      } ${currentDate.getFullYear()}`}</DateHeader>
+      <DateHeader>{dateHeaderText}</DateHeader>
       <BirthdayTreeButtonsContainer>
         <CollapseButton onClick={handleCollapseTree} type="button">
-          Collapse All
+          -
         </CollapseButton>
       </BirthdayTreeButtonsContainer>
       <BirthdayTree ref={birthdayTreeRef} className="tree-view">
@@ -69,17 +61,15 @@ export default function SigmaBirthdays() {
         {birthdayMonths.map((month) => (
           <BirthdayMonthBranch key={month}>
             <details open={isMonthPassTheCurrentDate(month)}>
-              <summary>{monthNames[month]}</summary>
+              <summary>{MONTH_NAMES[month]}</summary>
               <ul>
-                {birthdaysMockup
-                  .filter(({ date }) => date.getMonth() === month)
-                  .map(({ date, bdayBoy }) => (
-                    <li key={bdayBoy}>
-                      <BirthdayLink
-                        bdayPassed={date.getTime() < currentDate.getTime()}
-                      >{`${date.getDate()} - ${bdayBoy}`}</BirthdayLink>
-                    </li>
-                  ))}
+                {birthdaysInMonth(month).map(({ date, bdayBoy }) => (
+                  <li key={bdayBoy}>
+                    <BirthdayLink
+                      bdayPassed={!isPassTheCurrentDate(date)}
+                    >{`${date.getDate()} - ${bdayBoy}`}</BirthdayLink>
+                  </li>
+                ))}
               </ul>
             </details>
           </BirthdayMonthBranch>

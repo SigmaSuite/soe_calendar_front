@@ -5,8 +5,7 @@ export const MainContent = styled.main`
   position: relative;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto;
-  width: 1440px;
+  width: 100%;
   height: 100%;
 `;
 export const NavbarOverlay = styled.div`
@@ -82,4 +81,21 @@ export const DropdownButton = styled.button`
     width: 100%;
     height: 100%;
   }
+`;
+
+export const Desktop = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+`;
+
+export const ModalContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
 `;

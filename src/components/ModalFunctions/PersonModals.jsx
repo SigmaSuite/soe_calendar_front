@@ -1,5 +1,5 @@
-import PersonForm from '@components/PersonsSection/PersonForm/PersonForm';
-import PersonsList from '@components/PersonsSection/PersonsList/PersonsList';
+import PersonForm from '@components/PersonsManagment/PersonForm/PersonForm';
+import PersonsList from '@components/PersonsManagment/PersonsList/PersonsList';
 
 const usePersonModals = (persons, setPersons) => {
   const displayPersonsInModal = () => <PersonsList persons={persons} />;
