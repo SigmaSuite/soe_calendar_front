@@ -11,7 +11,7 @@ import {
   CringeSlider,
   PersonBodyInfo,
 } from '../PersonTab/PersonTab.styles';
-import { PersonsListContainer } from './PersonsList.styles';
+import PersonsListContainer from './PersonsList.styles';
 
 export default function PersonsList() {
   const persons = usePersons();
