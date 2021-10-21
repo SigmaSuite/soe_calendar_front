@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 export const CloseButton = ({ children, onClick }) => (
   <button onClick={onClick} type="button" aria-label="Close">
@@ -41,3 +41,32 @@ const buttons = {
 };
 
 export default buttons;
+
+CloseButton.propTypes = {
+  children: PropTypes.string,
+  onClick: PropTypes.func,
+};
+
+CloseButton.defaultProps = {
+  children: '',
+  onClick: () => {},
+};
+MaximizeButton.propTypes = {
+  children: PropTypes.string,
+  onClick: PropTypes.func,
+};
+
+MaximizeButton.defaultProps = {
+  children: '',
+  onClick: () => {},
+};
+
+MinimizeButton.propTypes = {
+  children: PropTypes.string,
+  onClick: PropTypes.func,
+};
+
+MinimizeButton.defaultProps = {
+  children: '',
+  onClick: () => {},
+};

@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { CloseButton, MaximizeButton, MinimizeButton } from './FunctionButtons';
 import { WindowControlsContainer } from './WindowsElements';
@@ -13,3 +13,8 @@ export default function WindowControls({ setIsMaximized, closeModal }) {
     </WindowControlsContainer>
   );
 }
+
+WindowControls.propTypes = {
+  setIsMaximized: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
+};

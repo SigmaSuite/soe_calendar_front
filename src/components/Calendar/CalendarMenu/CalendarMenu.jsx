@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { WindowBody, WindowDescription, WindowHeader } from '@components/Generic/WindowsElements';
 import calendarOptions from '@components/ModalFunctions/CalendarModals';
@@ -53,3 +53,7 @@ export default function CalendarMenu({ closeModal }) {
     </CalendarWindowContainer>
   );
 }
+
+CalendarMenu.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+};

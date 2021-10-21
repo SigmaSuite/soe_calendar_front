@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { PERSONS } from '@endpoints/rustapi';
 import {
@@ -12,7 +13,6 @@ import {
   SubmitButton,
 } from './PersonForm.styles';
 
-// eslint-disable-next-line react/prop-types
 export default function PersonForm({ setPersons, closeModal }) {
   const [name, setName] = useState('');
   const [cardId, setCardId] = useState('');
@@ -97,3 +97,8 @@ export default function PersonForm({ setPersons, closeModal }) {
     </PersonFormContainer>
   );
 }
+
+PersonForm.propTypes = {
+  setPersons: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
+};

@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 
+import PropTypes from 'prop-types';
 import { MainButton, WindowDescription, WindowHeader } from '@components/Generic/WindowsElements';
 import WindowControls from '@components/Generic/WindowControls';
 import {
@@ -76,3 +76,7 @@ export default function RegisterWindow({ closeModal }) {
     </RegisterWindowContainer>
   );
 }
+
+RegisterWindow.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+};

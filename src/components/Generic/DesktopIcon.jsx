@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 export const DesktopIconContainer = styled.div`
   position: relative;
@@ -30,3 +30,9 @@ export default function DesktopIcon({ component, name, setCurrentModal }) {
     </DesktopIconContainer>
   );
 }
+
+DesktopIcon.propTypes = {
+  component: PropTypes.node.isRequired,
+  name: PropTypes.string.isRequired,
+  setCurrentModal: PropTypes.func.isRequired,
+};

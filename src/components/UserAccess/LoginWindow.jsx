@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { WindowBody, WindowHeader } from '@components/Generic/WindowsElements';
 import WindowControls from '@components/Generic/WindowControls';
@@ -66,3 +66,7 @@ export default function LoginWindow({ closeModal }) {
     </LoginContainer>
   );
 }
+
+LoginWindow.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+};
