@@ -18,8 +18,8 @@ spec:
         env:
         - name: PORT
           value: "80"
-        - name: BASE_PATH
-          value: ""
+        - name: NEXT_PUBLIC_BASE_PATH
+          value: "/calendar"
       imagePullSecrets:
         - name: ghcr-secret
   selector:
