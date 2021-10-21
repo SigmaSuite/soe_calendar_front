@@ -11,9 +11,6 @@ spec:
         image: ghcr.io/sigmasuite/soe_calendar_front:main
         ports:
           - containerPort: 3000
-    metadata:
-      labels:
-        service: soe-calendar-frontend
   selector:
     matchLabels:
       app: soe-calendar-frontend
