@@ -1,5 +1,6 @@
 FROM node
 ENV NODE_ENV production
+ENV NEXT_PUBLIC_ASSET_PREFIX "/calendar/"
 WORKDIR /app
 COPY . .
 RUN npm ci --only=production
