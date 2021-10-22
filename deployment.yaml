@@ -18,6 +18,8 @@ spec:
         env:
         - name: PORT
           value: "80"
+        - name: NEXT_PUBLIC_ASSET_PREFIX
+          value: "/calendar/"
       imagePullSecrets:
         - name: ghcr-secret
   selector:
