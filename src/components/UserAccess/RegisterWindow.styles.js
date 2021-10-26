@@ -17,7 +17,7 @@ export const RegisterWindowBody = styled(WindowBody)`
 
 export const RegisterImageContainer = styled.div`
   display: flex;
-  background-image: url('bartek.svg'),
+  background-image: url('calendar/bartek.svg'),
     ${({ isInvalid }) =>
       isInvalid
         ? 'linear-gradient(45deg,#e60a29,#6b6c6c)'
