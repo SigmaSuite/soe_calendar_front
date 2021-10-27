@@ -1,5 +1,7 @@
-import { WindowBody } from '@components/Generic/WindowsElements';
 import styled from 'styled-components';
+
+import { ASSET_PREFIX } from 'src/config/config';
+import { WindowBody } from '@components/Generic/WindowsElements';
 
 export const RegisterWindowContainer = styled.div`
   display: flex;
@@ -17,7 +19,7 @@ export const RegisterWindowBody = styled(WindowBody)`
 
 export const RegisterImageContainer = styled.div`
   display: flex;
-  background-image: url('calendar/bartek.svg'),
+  background-image: url('${ASSET_PREFIX}bartek.svg'),
     ${({ isInvalid }) =>
       isInvalid
         ? 'linear-gradient(45deg,#e60a29,#6b6c6c)'

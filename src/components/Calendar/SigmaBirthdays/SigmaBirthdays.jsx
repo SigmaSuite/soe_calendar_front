@@ -4,9 +4,11 @@ import { CollapseButton } from '@components/Generic/FunctionButtons';
 import {
   currentDate,
   getMonthsSetInDatesCollection,
+  isMonthPassDate,
   isMonthPassTheCurrentDate,
+  isPassDate,
   isPassTheCurrentDate,
-} from 'src/utils/Date';
+} from '@utils/Date';
 import MONTH_NAMES from 'src/consts/Date';
 import {
   BirthdayLink,
@@ -14,8 +16,8 @@ import {
   BirthdayOptionContainer,
   BirthdayTree,
   BirthdayTreeButtonsContainer,
-  BirthdayTreeDescription,
-  DateHeader,
+  BirthdayTreeDate,
+  BirthdayHeader,
   MonthSummary,
 } from './SigmaBirthdays.styles';
 
@@ -36,7 +38,7 @@ export default function SigmaBirthdays() {
   const birthdayMonths = getMonthsSetInDatesCollection(birthdaysMockup.map(({ date }) => date));
 
   const dateHeaderText = `${currentDate.getDate()} ${
-    MONTH_NAMES[currentDate.getMonth()]
+    MONTH_NAMES[currentDate.getMonth() + 1]
   } ${currentDate.getFullYear()}`;
 
   const birthdaysInMonth = (month) =>
@@ -51,23 +53,23 @@ export default function SigmaBirthdays() {
 
   return (
     <BirthdayOptionContainer>
-      <DateHeader>{dateHeaderText}</DateHeader>
+      <BirthdayHeader>Sigma Birthdays</BirthdayHeader>
       <BirthdayTreeButtonsContainer>
         <CollapseButton onClick={handleCollapseTree} type="button">
           -
         </CollapseButton>
       </BirthdayTreeButtonsContainer>
-      <BirthdayTree ref={birthdayTreeRef} className="tree-view">
-        <BirthdayTreeDescription>Sigma Birthdays:</BirthdayTreeDescription>
+      <BirthdayTree ref={birthdayTreeRef}>
+        <BirthdayTreeDate>{dateHeaderText}</BirthdayTreeDate>
         {birthdayMonths.map((month) => (
           <BirthdayMonthBranch key={month}>
-            <details open={isMonthPassTheCurrentDate(month)}>
+            <details open={isMonthPassDate(month, currentDate)}>
               <MonthSummary>{MONTH_NAMES[month]}</MonthSummary>
               <ul>
                 {birthdaysInMonth(month).map(({ date, bdayBoy }) => (
                   <li key={bdayBoy}>
                     <BirthdayLink
-                      bdayPassed={!isPassTheCurrentDate(date)}
+                      bdayPassed={!isPassDate(date, currentDate)}
                     >{`${date.getDate()} - ${bdayBoy}`}</BirthdayLink>
                   </li>
                 ))}

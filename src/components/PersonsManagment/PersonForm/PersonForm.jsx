@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { PERSONS } from '@endpoints/rustapi';
 import {
   ButtonRow,
   PersonFormContainer,
@@ -13,39 +12,13 @@ import {
   SubmitButton,
 } from './PersonForm.styles';
 
-export default function PersonForm({ setPersons, closeModal }) {
+export default function PersonForm({ closeModal }) {
   const [name, setName] = useState('');
   const [cardId, setCardId] = useState('');
   const [isLarge, setIsLarge] = useState(false);
 
-  const clearForm = () => {
-    setName('');
-    setCardId('');
-  };
-
   async function handleSubmit(event) {
     event.preventDefault();
-    const newPerson = {
-      name,
-      bankaccount: cardId,
-    };
-    if (!(name || cardId)) return;
-    try {
-      const res = await fetch(PERSONS, {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newPerson),
-      });
-      const resJson = await res.json();
-      clearForm();
-      setPersons((persons) => [...persons, resJson]);
-    } catch (error) {
-      console.log(error);
-    }
   }
 
   return (
@@ -99,6 +72,5 @@ export default function PersonForm({ setPersons, closeModal }) {
 }
 
 PersonForm.propTypes = {
-  setPersons: PropTypes.func.isRequired,
   closeModal: PropTypes.func.isRequired,
 };

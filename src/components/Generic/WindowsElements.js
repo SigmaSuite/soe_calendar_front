@@ -7,13 +7,15 @@ export const WindowControlsContainer = styled.div`
   margin-right: 3px;
 `;
 
-export const WindowHeader = styled.header`
+export const WindowHeader = styled.header(
+  ({ theme: { background }, isInvalid }) => `
   display: flex;
   width: 100%;
   height: 2rem;
   padding: 3px 0 3px 0;
-  background: ${({ isInvalid }) => isInvalid && 'linear-gradient(90deg,#e60a29,#6b6c6c)'};
-`;
+  background: ${isInvalid ? background.error : background.properBlue};
+`,
+);
 
 export const WindowBody = styled.div`
   display: flex;

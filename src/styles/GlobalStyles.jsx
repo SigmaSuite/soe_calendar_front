@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { fontSize } from './theme';
 
 const GlobalStyles = createGlobalStyle`
 :root {
@@ -14,7 +15,9 @@ body, html, #__next{
   padding: 0;
   height: 100%;
 }
-
+h3{
+  font-size: ${fontSize.huge}
+}
 
 `;
 export default GlobalStyles;

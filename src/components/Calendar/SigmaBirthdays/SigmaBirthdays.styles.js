@@ -8,7 +8,7 @@ export const BirthdayOptionContainer = styled.div`
   height: 100%;
   padding-top: 5rem;
 `;
-export const DateHeader = styled.h3`
+export const BirthdayHeader = styled.h3`
   margin: 0;
 `;
 
@@ -27,6 +27,9 @@ export const BirthdayTreeButtonsContainer = styled.div`
 
 export const BirthdayTree = styled.ul`
   background-color: white;
+  list-style: none;
+  padding-left: 2rem;
+  margin: 0;
   box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf,
     inset 2px 2px #0a0a0a;
   width: 40rem;
@@ -34,15 +37,19 @@ export const BirthdayTree = styled.ul`
   font-size: ${({ theme: { fontSize } }) => fontSize.xLarge} !important;
   overflow-y: auto;
 `;
-export const BirthdayTreeDescription = styled.p`
+export const BirthdayTreeDate = styled.p`
   text-align: center;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   font-weight: ${({ theme: { fontWeight } }) => fontWeight.bold};
 `;
 
 export const BirthdayMonthBranch = styled.li`
   margin-bottom: 0.5rem;
+  ul {
+    color: black;
 
+    padding-left: 3.5rem;
+  }
   summary:hover {
     text-decoration: underline;
   }

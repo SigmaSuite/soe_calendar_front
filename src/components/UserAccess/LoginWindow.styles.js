@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { ASSET_PREFIX } from 'src/config/config';
+
 export const LoginContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -13,7 +15,7 @@ export const LoginContainer = styled.div`
 export const LoginImageContainer = styled.div`
   width: 10rem;
   margin-right: 2rem;
-  background: url('calendar/ciombor.svg');
+  background: url('${ASSET_PREFIX}ciombor.svg');
 `;
 
 export const LoginCredentialsContainer = styled.form`

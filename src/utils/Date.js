@@ -4,19 +4,20 @@ export const getMonthsSetInDatesCollection = (datesCollection) => [
   ...new Set(datesCollection.map((date) => date.getMonth())), // return a set of months present in some collection of Date objects
 ];
 
-export const isMonthPassTheCurrentDate = (month) => {
-  const currentMonth = currentDate.getMonth();
-  if (month === 0) return true;
-  return month >= currentMonth;
+export const isMonthPassDate = (month, date) => {
+  const comparedMonth = date.getMonth();
+  if (month === 0 || month === 12) return true;
+  if (comparedMonth === 0) return false;
+  return month >= comparedMonth;
 };
 
-export const isPassTheCurrentDate = (date) => {
+export const isPassDate = (date, comparedDate) => {
   const month = date.getMonth();
-  const currentMonth = currentDate.getMonth();
-  if (month === currentMonth) {
+  const comparedMonth = comparedDate.getMonth();
+  if (month === comparedMonth) {
     const day = date.getDate();
-    const currentDay = currentDate.getDate();
-    return currentDay <= day;
+    const comparedDay = comparedDate.getDate();
+    return comparedDay <= day;
   }
-  return isMonthPassTheCurrentDate(month);
+  return isMonthPassDate(month, comparedDate);
 };

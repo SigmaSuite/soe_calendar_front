@@ -1,6 +1,6 @@
+import usePersons from '@hooks/UsePersons';
 import React from 'react';
 
-import usePersons from 'src/hooks/UsePersons';
 import {
   PersonTab,
   PersonName,

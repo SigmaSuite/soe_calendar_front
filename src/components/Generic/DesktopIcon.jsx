@@ -22,9 +22,11 @@ export const IconName = styled.h4`
   text-align: center;
 `;
 
-export default function DesktopIcon({ component, name, setCurrentModal }) {
+export default function DesktopIcon({ Component, name, setCurrentModal }) {
   return (
-    <DesktopIconContainer onClick={() => setCurrentModal(component)}>
+    <DesktopIconContainer
+      onClick={() => setCurrentModal(<Component closeModal={() => setCurrentModal(<></>)} />)}
+    >
       <IconImage />
       <IconName>{name}</IconName>
     </DesktopIconContainer>
@@ -32,7 +34,7 @@ export default function DesktopIcon({ component, name, setCurrentModal }) {
 }
 
 DesktopIcon.propTypes = {
-  component: PropTypes.node.isRequired,
+  Component: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   setCurrentModal: PropTypes.func.isRequired,
 };

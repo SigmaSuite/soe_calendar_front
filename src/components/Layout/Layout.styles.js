@@ -21,7 +21,7 @@ export const NavbarOverlay = styled.div`
   bottom: 0;
 `;
 
-export const Navbar = styled.nav`
+export const NavbarContainer = styled.nav`
   display: flex;
   width: 100%;
   height: 40px;

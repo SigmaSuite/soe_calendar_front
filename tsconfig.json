@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "paths": {
-      "@hooks": [
+      "@hooks/*": [
         "./src/hooks/*"
       ],
       "@styles/*": [
@@ -15,7 +15,11 @@
       ],
       "@endpoints/*": [
         "./src/endpoints/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
       ]
+  
     },
     "lib": ["dom", "dom.iterable", "esnext"],
     "module": "commonjs",
@@ -41,12 +45,14 @@
     "noEmit": true,
     "baseUrl": ".",
   },
+  "moduleDirectories": ["node_modules", "src"],
   "exclude": [
     "node_modules",
     "dist"
   ],
   "include": [
     "src",
+    "__tests__",
     "pages",
     "public",
     "config.ts",

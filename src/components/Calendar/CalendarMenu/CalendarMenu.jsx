@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { WindowBody, WindowDescription, WindowHeader } from '@components/Generic/WindowsElements';
-import calendarOptions from '@components/ModalFunctions/CalendarModals';
+import calendarOptions from '@components/Calendar/CalendarModals';
 import WindowControls from '@components/Generic/WindowControls';
 import {
   CalendarContentContainer,
