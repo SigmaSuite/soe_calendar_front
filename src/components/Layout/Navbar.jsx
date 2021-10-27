@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import LoginWindow from '@components/UserAccess/LoginWindow';
 import RegisterWindow from '@components/UserAccess/RegisterWindow';
@@ -38,3 +39,9 @@ export default function Navbar({ toggleDropdown, setCurrentModal, displayDropdow
     </NavbarContainer>
   );
 }
+
+Navbar.propTypes = {
+  displayDropdown: PropTypes.func.isRequired,
+  toggleDropdown: PropTypes.func.isRequired,
+  setCurrentModal: PropTypes.func.isRequired,
+};

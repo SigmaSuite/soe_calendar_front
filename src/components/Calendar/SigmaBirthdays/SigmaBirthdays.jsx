@@ -5,9 +5,7 @@ import {
   currentDate,
   getMonthsSetInDatesCollection,
   isMonthPassDate,
-  isMonthPassTheCurrentDate,
   isPassDate,
-  isPassTheCurrentDate,
 } from '@utils/Date';
 import MONTH_NAMES from 'src/consts/Date';
 import {
